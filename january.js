@@ -1,8 +1,8 @@
 function generate(selectedYear, selectedMonth, options)
 {
-    var year        = [],
-        month       = [],
-        day         = [],
+    var years       = [],
+        months      = [],
+        days        = [],
         d           = new Date(),
         cYear       = d.getFullYear(),
         cMonth      = d.getMonth() + 1,
@@ -19,13 +19,13 @@ function generate(selectedYear, selectedMonth, options)
     {
         var maxYear = cYear + offset
         for(var y = cYear; y < maxYear; y++)
-            year.push(y)
+            years.push(y)
     }
     else
     {
         var minYear = cYear - offset
         for(var y = cYear; y > minYear; y--)
-            year.push(y)
+            years.push(y)
     }
 
     /**
@@ -34,9 +34,9 @@ function generate(selectedYear, selectedMonth, options)
 
     for(var m = 1; m <= 12; m++)
         if(leadingZero && m < 10)
-            month.push("0" + m)
+            months.push("0" + m)
         else
-            month.push(m)
+            months.push(m)
 
     /**
      * Day
@@ -53,17 +53,17 @@ function generate(selectedYear, selectedMonth, options)
 
     for(var d = 1; d <= totalDay; d++)
         if(leadingZero && d < 10)
-            day.push("0" + d)
+            days.push("0" + d)
         else
-            day.push(d)
+            days.push(d)
 
     /**
      * Return
      */
 
     return {
-        year,
-        month,
-        day
+        years,
+        months,
+        days
     }
 }
